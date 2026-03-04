@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 12th Birthday Bonu 🎉</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Background Stars -->
+<div class="stars"></div>
+<div class="particles"></div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= ENTRY SCREEN ================= -->
+<div id="entry-screen">
+  <h1>On 5th March 2014...<br>A princess was born.</h1>
+
+  <button class="primary-btn" onclick="startSite()">
+    Click if you are Mohor 💖
+  </button>
+
+  <div class="secret-box">
+    <input type="password" id="secretPass" placeholder="Secret Code">
+    <button class="secondary-btn" onclick="checkPassword()">
+      Unlock Secret
+    </button>
+  </div>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div id="main-content" class="hidden">
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <h1>Happy 12th Birthday</h1>
+    <h2>Aaradhya Das</h2>
+    <p>(aka Mohor, aka Bonu 😌)</p>
+    <p id="countdown"></p>
+    <div class="subtle-glow"></div>
+  </section>
+
+  <!-- GALLERY -->
+ <section class="gallery reveal">
+  <h2>Memory Vault 📸</h2>
+
+  <div class="slider">
+
+    <button class="arrow left" onclick="prevSlide()">❮</button>
+
+    <div class="slides">
+      <img src="images/pic1.jpg" class="slide active">
+      <img src="images/pic2.jpg" class="slide">
+      <img src="images/pic3.jpg" class="slide">
+      <img src="images/pic4.jpg" class="slide">
+      <img src="images/pic5.jpg" class="slide">
+      <img src="images/pic6.jpg" class="slide">
+      <img src="images/pic7.jpg" class="slide">
+      <img src="images/pic8.jpg" class="slide">
+      <img src="images/pic9.jpg" class="slide">
+      <img src="images/pic10.jpg" class="slide">
+      <img src="images/pic11.jpg" class="slide">
+    </div>
+
+    <button class="arrow right" onclick="nextSlide()">❯</button>
+
+  </div>
+</section>
+
+  <!-- 12 REASONS -->
+  <section class="reasons reveal">
+    <h2>12 Reasons Why You’re Awesome 💖</h2>
+
+    <div class="reasons-grid">
+      <div>1. Your smile lights up everything ✨</div>
+      <div>2. You care deeply 💗</div>
+      <div>3. You’re stronger than you think 💪</div>
+      <div>4. Your laugh is addictive 😄</div>
+      <div>5. You inspire me 🌸</div>
+      <div>6. You’re kind 🥹</div>
+      <div>7. You’re intelligent 🧠</div>
+      <div>8. You’re supportive 🤝</div>
+      <div>9. You’re beautiful inside & out 🌹</div>
+      <div>10. You make my days better 🌞</div>
+      <div>11. You never give up 🚀</div>
+      <div>12. Because you’re YOU 💞</div>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="letter reveal">
+    <h2>Dear Bonu 💌</h2>
+    <p id="typedText"></p>
+  </section>
+
+  <!-- BALLOONS -->
+  <div id="balloon-container"></div>
+
+  <!-- SURPRISE -->
+  <section class="surprise reveal">
+    <h2>Click The Gift 🎁</h2>
+    <button onclick="openMessage()" class="gift-btn">
+      Open 🎁
+    </button>
+    <p id="surpriseMessage"></p>
+  </section>
+  <!-- MINI GAME -->
+  <section class="minigame reveal">
+    <h2>Secret Challenge 💖</h2>
+    <p>Catch 10 hearts to unlock something special...</p>
+    <div id="gameArea"></div>
+    <p id="scoreText">Score: 0</p>
+  </section>
+
+  <!-- CHATBOX -->
+  <div class="chatbox reveal">
+    <p id="chatText">Hi Mohor 👀</p>
+    <button onclick="nextChat()">Next</button>
+  </div>
+
+  <section class="final reveal">
+  <h2>One Last Thing 💌</h2>
+  <p>
+    No matter how tall you grow, how many goals you score,
+    or how strong you become...
+    you’ll always be my little Bonu.
+  </p>
+</section>
+
+</div>
+
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="modal" onclick="closeImage()">
+  <img id="modalImg">
+</div>
+
+<!-- Confetti Library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- Your Script -->
+<script src="script.js"></script>
+
+<!-- Scroll Reveal Animation -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+  });
+
+});
+</script>
+
+</body>
+</html>
